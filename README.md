@@ -1,6 +1,6 @@
-# Angular With Tailwind Css Setup
+# Angular With Tailwind CSS Setup
 
-### 1. Install Tailwind Css
+### 1. Install Tailwind CSS
 ```sh
 $ npm i tailwind --save
 ```
@@ -10,12 +10,12 @@ $ npm i tailwind --save
 $ npx tailwind init
 ```
 
-### 3. Install Angular Custo Webpack
+### 3. Install Angular Custom Webpack
 ```sh
 $ npm add @angular-builders/custom-webpack
 ```
 
-### 4. Import Tailwind Scss Modules
+### 4. Import Tailwind SCSS Modules
 in `src/styles.scss`
 ```scss
 @tailwind base;
