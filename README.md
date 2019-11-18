@@ -1,21 +1,21 @@
 # Angular With Tailwind Css Setup
 
-### Install Tailwind Css
-```bash
+### 1. Install Tailwind Css
+```sh
 $ npm i tailwind --save
 ```
 
-###  Initialize A New Project
-```bash
+### 2. Initialize A New Project
+```sh
 $ npx tailwind init
 ```
 
-### Install Angular Custo Webpack
-```bash
+### 3. Install Angular Custo Webpack
+```sh
 $ npm add @angular-builders/custom-webpack
 ```
 
-### Import Tailwind Scss Modules
+### 4. Import Tailwind Scss Modules
 in `src/styles.scss`
 ```scss
 @tailwind base;
@@ -23,7 +23,7 @@ in `src/styles.scss`
 @tailwind utilities;
 ```
 
-### Edit angular.json
+### 5. Edit angular.json
 ```json
 "architect": {
   "build": {
@@ -42,7 +42,7 @@ in `src/styles.scss`
 }
 ```
 
-### Add extra-webpack.config.js
+### 6. Add extra-webpack.config.js
 ```js
 module.exports = {
   module: {
