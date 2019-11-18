@@ -1,27 +1,66 @@
-# NgTailwind
+# Angular With Tailwind Css Setup
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.8.
+### Install Tailwind Css
+```bash
+$ npm i tailwind --save
+```
 
-## Development server
+###  Initialize A New Project
+```bash
+$ npx tailwind init
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Install Angular Custo Webpack
+```bash
+$ npm add @angular-builders/custom-webpack
+```
 
-## Code scaffolding
+### Import Tailwind Scss Modules
+in `src/styles.scss`
+```scss
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Edit angular.json
+```json
+"architect": {
+  "build": {
+    "builder": "@angular-builders/custom-webpack:browser",
+    "options": {
+      "customWebpackConfig": {
+        "path": "./extra-webpack.config.js"
+      },
+      "outputPath": "dist/angular-tailwind",
+      ...
+    },
+  }
+},
+"serve":{
+  "builder": "@angular-builders/custom-webpack:dev-server"
+}
+```
 
-## Build
+### Add extra-webpack.config.js
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: "postcss-loader",
+            options: {
+              plugins: [require("tailwindcss")("./tailwind.config.js")]
+            }
+          }
+        ]
+      }
+    ]
+  }
+};
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### It's Done!!!
