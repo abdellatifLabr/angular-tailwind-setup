@@ -2,7 +2,7 @@
 
 ### 1. Install Tailwind CSS
 ```sh
-$ npm i tailwind --save
+$ npm i tailwindcss --save
 ```
 
 ### 2. Initialize A New Project
@@ -32,7 +32,6 @@ in `src/styles.scss`
       "customWebpackConfig": {
         "path": "./extra-webpack.config.js"
       },
-      "outputPath": "dist/angular-tailwind",
       ...
     },
   }
